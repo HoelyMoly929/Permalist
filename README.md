@@ -14,5 +14,5 @@ Clone the repository:
 - HTML
 - CSS
 - JS
-- Ejs
+- EJS
 - PostgreSQL
