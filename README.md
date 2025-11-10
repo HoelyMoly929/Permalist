@@ -9,11 +9,10 @@ Clone the repository:
    git clone https://github.com/yourusername/permalist-website.git
    ```
 
+## Technologies Used
 
-##Technologies Used
-
-<ul>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>JavaScript</li>
-</ul>
+- HTML
+- CSS
+- JS
+- Ejs
+- PostgreSQL
