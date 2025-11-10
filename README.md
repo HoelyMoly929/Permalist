@@ -7,7 +7,7 @@ A simple, lightweight website to create and manage permanent links to your favor
 Clone the repository:  
    ```bash
    git clone https://github.com/yourusername/permalist-website.git
-
+   ```
 
 
 ##Technologies Used
