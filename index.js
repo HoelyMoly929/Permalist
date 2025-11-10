@@ -1,16 +1,19 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "permalist",
-  password: "123456",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 db.connect();
 
@@ -41,22 +44,21 @@ app.post("/add", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-
 });
 
 app.post("/edit", async (req, res) => {
   const updatedItemId = req.body.updatedItemId;
   const updatedItemTitle = req.body.updatedItemTitle;
-  
+
   try {
-    await db.query("UPDATE items SET title = $1 WHERE id = $2;",
-      [updatedItemTitle, updatedItemId]
-    );
+    await db.query("UPDATE items SET title = $1 WHERE id = $2;", [
+      updatedItemTitle,
+      updatedItemId,
+    ]);
     res.redirect("/");
   } catch (err) {
     console.log(err);
   }
-  
 });
 
 app.post("/delete", async (req, res) => {
